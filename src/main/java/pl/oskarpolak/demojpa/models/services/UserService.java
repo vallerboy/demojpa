@@ -9,13 +9,22 @@ import org.springframework.stereotype.Service;
 @Scope(scopeName = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class UserService {
 
-    private String text;
+    private String login;
+    private boolean isLogIn;
 
-    public String getText() {
-        return text;
+    public boolean isLogIn() {
+        return isLogIn;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setLogIn(boolean logIn) {
+        isLogIn = logIn;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 }

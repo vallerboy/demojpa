@@ -7,4 +7,5 @@ import pl.oskarpolak.demojpa.models.UserModel;
 
 @Repository
 public interface UserRepository extends CrudRepository<UserModel, Integer> {
+    boolean existsByLoginAndPassword(String login, String password);
 }
