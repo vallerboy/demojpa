@@ -46,18 +46,18 @@ public class MainController {
         return "Autor: " + userModel.getBookModels();
     }
 
-    @GetMapping("/text/{text}")
-    @ResponseBody
-    public String text(@PathVariable("text") String cos){
-        userService.setText(cos);
-        return "Zmienilem tekst";
-    }
+   
 
-    @GetMapping("/text")
-    @ResponseBody
-    public String text(){
-        return userService.getText();
-    }
+
+
+
+
+
+
+
+
+
+
 }
 
 

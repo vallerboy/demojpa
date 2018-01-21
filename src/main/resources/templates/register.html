@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>
+        <span th:text="${info}"></span>
+
+        <br/>
+
+        <form method="post" th:object="${registerForm}" th:action="@{/register}">
+            <span th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Error</span><br/>
+            <input type="text" th:field="*{login}" placeholder="Login"/>
+            <br/>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</span><br/>
+            <input type="password" th:field="*{password}" placeholder="Hasło"/>
+            <br/>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</span><br/>
+            <input type="text" th:field="*{name}" placeholder="Imię i nazwisko"/>
+            <br/>
+            <input type="submit" value="Wyslij"/>
+        </form>
+    </h1>
+</div>
+</body>
+</html>
+</body>
+</html>
