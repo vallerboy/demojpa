@@ -3,11 +3,13 @@ package pl.oskarpolak.demojpa.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.oskarpolak.demojpa.models.BookModel;
 import pl.oskarpolak.demojpa.models.UserModel;
 import pl.oskarpolak.demojpa.models.repositories.BookRepository;
 import pl.oskarpolak.demojpa.models.repositories.UserRepository;
+import pl.oskarpolak.demojpa.models.services.UserService;
 
 import java.util.List;
 
@@ -19,6 +21,9 @@ public class MainController {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    UserService userService;
 
     @GetMapping("/")
     @ResponseBody
@@ -41,6 +46,18 @@ public class MainController {
         return "Autor: " + userModel.getBookModels();
     }
 
+    @GetMapping("/text/{text}")
+    @ResponseBody
+    public String text(@PathVariable("text") String cos){
+        userService.setText(cos);
+        return "Zmienilem tekst";
+    }
+
+    @GetMapping("/text")
+    @ResponseBody
+    public String text(){
+        return userService.getText();
+    }
 }
 
 
