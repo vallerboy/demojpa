@@ -10,7 +10,6 @@ import pl.oskarpolak.demojpa.models.repositories.UserRepository;
 @Controller
 public class MainController {
 
-
     @Autowired
     UserRepository userRepository;
 

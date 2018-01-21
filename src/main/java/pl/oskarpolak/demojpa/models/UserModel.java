@@ -10,8 +10,18 @@ public class UserModel {
         private int id;
         private String login;
         private String password;
-        //@Column(name = "name")
+        //@Column(name = "nameForYou")
         private String name;
+        @Transient
+        boolean isEating;
+
+    public boolean getIsEating() {
+        return isEating;
+    }
+
+    public void setEating(boolean eating) {
+        isEating = eating;
+    }
 
     public int getId() {
         return id;
