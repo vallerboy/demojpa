@@ -2,6 +2,8 @@ package pl.oskarpolak.demojpa.models;
 
 
 
+import org.apache.catalina.User;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +12,9 @@ public class BookModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int who;
+    @ManyToOne
+    @JoinColumn(name = "who")
+    private UserModel who;
     private String title;
     private String author;
     private int pages;
@@ -23,11 +27,11 @@ public class BookModel {
         this.id = id;
     }
 
-    public int getWho() {
+    public UserModel getWho() {
         return who;
     }
 
-    public void setWho(int who) {
+    public void setWho(UserModel who) {
         this.who = who;
     }
 

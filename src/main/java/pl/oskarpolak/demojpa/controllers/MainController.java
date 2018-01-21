@@ -36,16 +36,9 @@ public class MainController {
     @GetMapping("/book")
     @ResponseBody
     public String book(){
-//        BookModel model = new BookModel();
-//        model.setId(3);
-//        model.setAuthor("Oskar");
-//        model.setWho(2);
-//        model.setPages(200);
-//        model.setTitle("Java");
+        BookModel bookModel = bookRepository.findOne(2);
 
-        List<BookModel> books = bookRepository.findByPagesGreaterThanAndAuthorContaining(200, "o");
-
-        return "Ksiazek z wieksza iloscia stron niz 200: " + books.size();
+        return "Autor: " + bookModel.getWho().getName();
     }
 
 }
