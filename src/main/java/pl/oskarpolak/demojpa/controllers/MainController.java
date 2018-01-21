@@ -36,9 +36,9 @@ public class MainController {
     @GetMapping("/book")
     @ResponseBody
     public String book(){
-        BookModel bookModel = bookRepository.findOne(2);
+      UserModel userModel = userRepository.findOne(2);
 
-        return "Autor: " + bookModel.getWho().getName();
+        return "Autor: " + userModel.getBookModels();
     }
 
 }

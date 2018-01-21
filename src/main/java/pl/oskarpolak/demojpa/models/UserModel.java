@@ -1,6 +1,7 @@
 package pl.oskarpolak.demojpa.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -12,15 +13,16 @@ public class UserModel {
         private String password;
         //@Column(name = "nameForYou")
         private String name;
-        @Transient
-        boolean isEating;
 
-    public boolean getIsEating() {
-        return isEating;
+        @OneToMany(mappedBy = "who")
+        List<BookModel> bookModels;
+
+    public List<BookModel> getBookModels() {
+        return bookModels;
     }
 
-    public void setEating(boolean eating) {
-        isEating = eating;
+    public void setBookModels(List<BookModel> bookModels) {
+        this.bookModels = bookModels;
     }
 
     public int getId() {
